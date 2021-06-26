@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import RequestServices from './../../services/httpRequestServices';
 
-export const login = createAsyncThunk("logIn", async (values, thunkApi) => {
+export const login = createAsyncThunk("login", async (values, thunkApi) => {
     const { data } = await RequestServices.login(values);
     return data;
 });
@@ -9,7 +9,10 @@ export const login = createAsyncThunk("logIn", async (values, thunkApi) => {
 export const loginSlice = createSlice({
     name: "login",
     initialState: {
-        token: null
+        token: null,
+        currentRequestId: '',
+        loading: 'idle',
+        error: ''
     },
     reducers: {
         logout: (state) => {
@@ -18,7 +21,7 @@ export const loginSlice = createSlice({
     },
     extraReducers: {
         [login.fulfilled]: (state, action) => {
-            if (action.meta.requestId === state.currentRequestId.requestId) {
+            if (action.meta.requestId === state.currentRequestId) {
                 state.token = action.payload.token;
                 state.loading = 'idle';
                 state.error = '';
@@ -26,12 +29,12 @@ export const loginSlice = createSlice({
             }
         },
         [login.pending]: (state, action) => {
-            state.currentRequestId = action.meta.currentRequestId;
+            state.currentRequestId = action.meta.requestId;
             state.loading = 'pending';
         },
         [login.rejected]: (state, action) => {
-            if (action.meta.requestId === state.currentRequestId.requestId) {
-                state.currentRequestId = action.meta.currentRequestId;
+            if (action.meta.requestId === state.currentRequestId) {
+                state.currentRequestId = action.meta.requestId;
                 state.loading = 'idle';
                 state.error = action.error;
             }
@@ -44,4 +47,4 @@ export const { logout } = loginSlice.actions;
 export const isLoggedIn = (state) => state.login.token !== null;
 export const getToken = (state) => state.login.token;
 
-export default loginSlice.reducer
+export default loginSlice.reducer;
