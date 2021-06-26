@@ -10,9 +10,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-    <Provider store={store}>
-      <App />
-    </Provider>
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')
