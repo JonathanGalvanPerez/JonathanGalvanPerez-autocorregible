@@ -1,15 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import RequestServices from './../../services/httpRequestServices';
+import RequestServices from '../../services/httpRequestService';
 
 export const login = createAsyncThunk("login", async (values, thunkApi) => {
-    const { data } = await RequestServices.login(values);
-    return data;
+    try {
+        const { data } = await RequestServices.login(values);
+        return data;
+    } catch(error) {
+        throw error;
+    }
 });
 
 export const loginSlice = createSlice({
     name: "login",
     initialState: {
-        token: null,
+        token: JSON.parse(localStorage.getItem('token')),
         currentRequestId: '',
         loading: 'idle',
         error: ''
@@ -45,6 +49,7 @@ export const loginSlice = createSlice({
 export const { logout } = loginSlice.actions;
 
 export const isLoggedIn = (state) => state.login.token !== null;
+export const isLoading = (state) => state.login.loading === 'pending';
 export const getToken = (state) => state.login.token;
 
 export default loginSlice.reducer;
