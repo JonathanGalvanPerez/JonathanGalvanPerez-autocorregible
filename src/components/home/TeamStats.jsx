@@ -13,7 +13,7 @@ export default function TeamStats() {
         backgroundSize: "cover",
         backgroundPosition: "center"
     }
-    console.log('promedio altura', meanHeight);
+    
     return (
         <div className="col-12 col-xl-10 my-2 py-3 mx-auto rounded-md shadow" style={backgroundStyle}>
             <ol className="row justify-content-around">
@@ -25,7 +25,7 @@ export default function TeamStats() {
                     </li>
                 ))}
             </ol>
-            <div className="progress rounded-xs my-1" style={{height: "25px"}}>
+            <div className="progress rounded-xs" style={{height: "25px"}}>
                 {orderedStats.map((stat) => (
                     <ProgressBar value={stat.value} name={stat.name} key={stat.name}/>
                 ))}

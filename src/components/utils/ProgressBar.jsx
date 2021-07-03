@@ -1,12 +1,12 @@
 import React from 'react'
 
 const colors = {
-    intelligence: "blue",
-    strength: "green",
-    speed: "skyblue",
+    intelligence: "#3c096c",
+    strength: "#40916c",
+    speed: "#0466c8",
     durability: "black",
-    power: "red",
-    combat: "yellow",
+    power: "#c1121f",
+    combat: "#fca311",
 }
 
 export default function ProgressBar({ value, name }) {
