@@ -1,8 +1,8 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Home from './../components/Home';
-import Search from './../components/Search';
-import HeroDetail from './../components/HeroDetail';
+import Home from '../components/home/Home';
+import Search from '../components/search/Search';
+import HeroDetail from '../components/heroDetail/HeroDetail';
 
 export default function MainRoutes() {
     return (

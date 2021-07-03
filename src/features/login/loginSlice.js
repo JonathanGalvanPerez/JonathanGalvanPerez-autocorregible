@@ -3,8 +3,7 @@ import RequestServices from '../../services/httpRequestService';
 
 export const login = createAsyncThunk("login", async (values, thunkApi) => {
     try {
-        const { data } = await RequestServices.login(values);
-        return data;
+        return await RequestServices.login(values);
     } catch(error) {
         throw error;
     }

@@ -24,8 +24,8 @@ export default function LoginPage() {
     if(_isLoggedIn)
         return (<Redirect to="/home" />)
     return (
-        <div className="container bg-primary">
-            <h1>Login</h1>
+        <div className="container my-2">
+            <h1 className="text-white bg-primary py-4">Inicia Sesión</h1>
             <LoginForm onSubmit={onSubmit} />
         </div>
     )

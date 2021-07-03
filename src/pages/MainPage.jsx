@@ -15,7 +15,7 @@ export default function MainPage() {
     return (
         <div className="container p-0">
             <Navbar />
-            <div className="p-2 px-md-0">
+            <div className="p-2 bg-light">
                 <MainRoutes />
             </div>
         </div>

@@ -21,19 +21,17 @@ const searchHero = async (query) => {
 
 const getHero = async (id) => {
     let { data } = await axios.get(`${HERO_API_URL}/${id}`);
-    if(!data.error)
-        data = data.results.map(hero => (
-            {
-                name: hero.name,
-                aliases: hero.biography.aliases,
-                workplace: hero.work.base,
-                height: hero.appearance.height,
-                weight: hero.appearance.weight,
-                eyeColor: hero.appearance["eye-color"],
-                hairColor: hero.appearance["hair-color"],
-                image: hero.image.url
-            }
-        ));
+    if(data.response === "success")
+        return {
+            name: data.name,
+            aliases: data.biography.aliases,
+            workplace: data.work.base,
+            height: data.appearance.height,
+            weight: data.appearance.weight,
+            eyeColor: data.appearance["eye-color"],
+            hairColor: data.appearance["hair-color"],
+            image: data.image.url
+        }
     return data.results;
 }
 

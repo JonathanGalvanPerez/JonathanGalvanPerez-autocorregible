@@ -13,9 +13,9 @@ export default function Search() {
             <h2 className="jumbotron">Ingrese el nombre del superheroe</h2>
             <SearchBar onSearch={setData} setLoading={setLoading} />
             {loading?
-                <div className="spinner-border alkemy-spinner mx-auto mt-5" role="status" aria-hidden="true"></div>
+                <div className="spinner-border alkemy-spinner mx-auto my-5" role="status" aria-hidden="true"></div>
             :
-                <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 no-gutters mx-auto justify-content-center">
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 mx-auto">
                     {data.map(hero => (
                         <HeroCard hero={hero} key={hero.id} included={team.find(item => item.id === hero.id)} />
                     ))}
