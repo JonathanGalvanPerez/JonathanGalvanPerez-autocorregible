@@ -11,7 +11,9 @@ const team = createSlice({
             { name: 'durability', value: 0 },
             { name: 'power', value: 0 },
             { name: 'combat', value: 0 },
-        ]
+        ],
+        height: 0,
+        weight: 0
     },
     reducers: {
         addHero: (state, action) => {
@@ -21,10 +23,13 @@ const team = createSlice({
             state.heroes.push(hero);
             for(const stat in hero.powerstats) {
                 const index = state.stats.findIndex(teamStat => teamStat.name === stat);
-                const value = hero.powerstats[stat];
-                if(value !== "null")
-                    state.stats[index].value += Number(value);
+                if(hero.powerstats[stat] !== "null")
+                    state.stats[index].value += Number(hero.powerstats[stat]);
             }
+            if(hero.height !== "null" )
+                state.height += Number(hero.height);
+            if(hero.weight !== "null" )
+                state.weight += Number(hero.weight);
         },
         deleteHero: (state, action) => {
             const id = action.payload;
@@ -37,6 +42,10 @@ const team = createSlice({
                     if(value !== "null")
                         state.stats[index].value -= Number(value);
                 }
+                if(deleted.height !== "null" )
+                    state.height -= Number(deleted.height);
+                if(deleted.weight !== "null" )
+                    state.weight -= Number(deleted.weight);
             }
         }
     }

@@ -14,7 +14,9 @@ const searchHero = async (query) => {
                 id: hero.id,
                 name: hero.name,
                 powerstats: hero.powerstats,
-                image: hero.image
+                image: hero.image,
+                height: hero.appearance.height[1].replace( ' cm', ''),
+                weight: hero.appearance.weight[1].replace( ' kg', '')
             }));
     return data;
 }
