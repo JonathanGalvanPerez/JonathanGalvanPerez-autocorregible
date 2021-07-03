@@ -11,14 +11,22 @@ export default function HeroCard({ hero, included }) {
             setAdded(true);
         }
     }
+
+    const imageStyle = {
+        height: "320px",
+        objectFit: "cover"
+    }
+
     return (
-        <div className="alkemy-card col">
-            <img className="card-img-top" src={hero.image.url} alt="Superhero" />
-            <div className="card-body">
-                <h5 className="card-title">{hero.name}</h5>
-                <button onClick={addButtonhandler} className="alkemy-btn-primary">
-                    { added ? "Agregado" : "Agregar" }
-                </button>
+        <div className="col p-1">
+            <div className="alkemy-card rounded-xs overflow-hidden">
+                <img className="card-img-top" src={hero.image.url} alt="Superhero" style={imageStyle} />
+                <div className="card-body">
+                    <h5 className="card-title">{hero.name}</h5>
+                    <button onClick={addButtonhandler} className="alkemy-btn-primary">
+                        { added ? "Agregado" : "Agregar" }
+                    </button>
+                </div>
             </div>
         </div>
     )
