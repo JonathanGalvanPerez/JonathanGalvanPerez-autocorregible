@@ -28,8 +28,8 @@ const getHero = async (id) => {
             name: data.name,
             aliases: data.biography.aliases,
             workplace: data.work.base,
-            height: data.appearance.height,
-            weight: data.appearance.weight,
+            height: data.appearance.height[1].replace( ' cm', ''),
+            weight: data.appearance.weight[1].replace( ' kg', ''),
             eyeColor: data.appearance["eye-color"],
             hairColor: data.appearance["hair-color"],
             image: data.image.url
