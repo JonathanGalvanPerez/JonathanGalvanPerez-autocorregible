@@ -20,8 +20,10 @@ const team = createSlice({
                 return;
             state.heroes.push(hero);
             for(const stat in hero.powerstats) {
-                const index = state.stats.findIndex(teamStat => teamStat.name === stat)
-                state.stats[index].value += Number(hero.powerstats[stat]);
+                const index = state.stats.findIndex(teamStat => teamStat.name === stat);
+                const value = hero.powerstats[stat];
+                if(value !== "null")
+                    state.stats[index].value += Number(value);
             }
         },
         deleteHero: (state, action) => {
@@ -30,8 +32,10 @@ const team = createSlice({
             if(index !== -1) {
                 let [deleted] = state.heroes.splice(index, 1);
                 for(const stat in deleted.powerstats) {
-                    const index = state.stats.findIndex(teamStat => teamStat.name === stat)
-                    state.stats[index].value -= Number(deleted.powerstats[stat]);
+                    const index = state.stats.findIndex(teamStat => teamStat.name === stat);
+                    const value = deleted.powerstats[stat];
+                    if(value !== "null")
+                        state.stats[index].value -= Number(value);
                 }
             }
         }
