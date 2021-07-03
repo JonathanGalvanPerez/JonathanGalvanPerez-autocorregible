@@ -5,7 +5,6 @@ import Alert from './../../services/alertService';
 export default function SearchBar({ onSearch, setLoading }) {
     const [query, setQuery] = useState('');
     const searchButtonHandler = async () => {
-        console.log(query);
         setLoading(true);
         const result = await RequestService.searchHero(query);
         if(!result.error)
@@ -15,7 +14,6 @@ export default function SearchBar({ onSearch, setLoading }) {
         setLoading(false);
     }
     const enterPressHandler = (event) => {
-        console.log('event: ', event.target);
         if(event.code === "Enter")
             searchButtonHandler();
     }

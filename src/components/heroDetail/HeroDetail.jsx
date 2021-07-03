@@ -29,14 +29,14 @@ export default function HeroDetail() {
         )
     else
         return (
-            <div className="d-flex align-items-stretch rounded shadow" style={backgroundStyle}>
-                <img className="rounded p-1" width="40%" src={hero.image} alt="Superhero" />
-                <ul className="text-left p-3 d-flex flex-column justify-content-around">
+            <div className="d-flex flex-wrap align-items-stretch rounded shadow" style={backgroundStyle}>
+                <img className="col-12 col-sm-6 col-lg-4 rounded p-1" width="40%" src={hero.image} alt="Superhero" />
+                <ul className="col-12 col-sm-6 col-lg-8 text-left p-3 d-flex flex-column justify-content-around">
                     <li><strong>Nombre: </strong>{hero.name}</li>
                     <li><strong>Alias: </strong>{hero.aliases.join(', ')}</li>
                     <li><strong>Lugar de trabajo: </strong>{hero.workplace}</li>
-                    <li><strong>Altura: </strong>{hero.height}</li>
-                    <li><strong>Peso: </strong>{hero.weight}</li>
+                    <li><strong>Altura: </strong>{hero.height} cm</li>
+                    <li><strong>Peso: </strong>{hero.weight} kg</li>
                     <li><strong>Color de ojos: </strong>{hero.eyeColor}</li>
                     <li><strong>Color de pelo: </strong>{hero.hairColor}</li>
                 </ul>
