@@ -5,8 +5,8 @@ import ProgressBar from './../utils/ProgressBar';
 export default function TeamStats() {
     const team = useSelector(state => state.team);
     const orderedStats = [...team.stats].sort((a, b) => b.value - a.value);
-    const meanHeight = (team.heroes.length === 0) ? 0 : (team.height / team.heroes.length).toFixed(2);
-    const meanWeight = (team.heroes.length === 0) ? 0 : (team.weight / team.heroes.length).toFixed(2);
+    const meanHeight = (team.heroes.length === 0) ? 0 : (team.totalHeight / team.heroes.length).toFixed(2);
+    const meanWeight = (team.heroes.length === 0) ? 0 : (team.totalWeight / team.heroes.length).toFixed(2);
 
     const backgroundStyle = {
         backgroundImage: "url(/images/comic-background-stats.jpg)",
