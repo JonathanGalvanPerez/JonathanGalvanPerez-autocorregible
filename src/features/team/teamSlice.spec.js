@@ -4,7 +4,7 @@ import teamReducer, {
     deleteHero
 } from './teamSlice';
 
-describe('team reducer', () => {
+describe('Team reducer', () => {
     const initialState = {
         heroes: [
             {
@@ -27,7 +27,9 @@ describe('team reducer', () => {
             { name: 'durability', value: 55 },
             { name: 'power', value: 63 },
             { name: 'combat', value: 90 }
-        ]
+        ],
+        totalHeight: 178,
+        totalWeight: 77
     };
     const hero = {
         id: "71",
@@ -39,7 +41,9 @@ describe('team reducer', () => {
             durability: 28,
             power: 36,
             combat: 100
-        }
+        },
+        height: 178,
+        weight: 79
     
     }
     it('should handle initial state', () => {
@@ -67,7 +71,7 @@ describe('team reducer', () => {
         ]);
     });
 
-    it('should handle increment', () => {
+    it('should handle addHero', () => {
         const actual = teamReducer(initialState, addHero(hero));
         expect(actual.heroes).toHaveLength(2);
         expect(actual.heroes).toEqual([
@@ -96,5 +100,14 @@ describe('team reducer', () => {
             { name: 'power', value: 0 },
             { name: 'combat', value: 0 }
         ]);
+    });
+    
+    it('should update totalWeight and totalHeight',() => {
+        let actual = teamReducer(initialState, addHero(hero));
+        expect(actual.totalHeight).toBe(356);
+        expect(actual.totalWeight).toBe(156);
+        actual = teamReducer(actual, deleteHero("71"));
+        expect(actual.totalHeight).toBe(178);
+        expect(actual.totalWeight).toBe(77);
     });
 })
