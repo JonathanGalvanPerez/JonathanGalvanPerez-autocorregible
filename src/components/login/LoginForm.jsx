@@ -19,8 +19,8 @@ export default function LoginForm({ onSubmit }) {
                     <Field name="email" >
                         {({ field, form }) => (
                             <div className="form-group">
-                                <label htmlFor="email" className="alkemy-form-label">Email</label>
-                                <input type="email" className="alkemy-form-control" {...field} />
+                                <label htmlFor="email-input" className="alkemy-form-label">Email</label>
+                                <input type="email" className="alkemy-form-control" id="email-input" {...field} />
                                 {form.errors.email && form.touched.email &&
                                     <div className="alkemy-alert-danger" >{form.errors.email}</div>
                                 }
@@ -30,8 +30,8 @@ export default function LoginForm({ onSubmit }) {
                     <Field name="password" >
                         {({ field, form }) => (
                             <div className="form-group">
-                                <label htmlFor="Contraseña" className="alkemy-form-label">Contraseña</label>
-                                <input type="password" className="alkemy-form-control" {...field} />
+                                <label htmlFor="password-input" className="alkemy-form-label">Contraseña</label>
+                                <input type="password" className="alkemy-form-control" id="password-input" {...field} />
                                 {form.errors.password && form.touched.password &&
                                     <div className="alkemy-alert-danger" >{form.errors.password}</div>
                                 }
