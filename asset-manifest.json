@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/JonathanGalvanPerez-autocorregible/static/css/main.39d2f4f1.chunk.css",
+    "main.js": "/JonathanGalvanPerez-autocorregible/static/js/main.3265d721.chunk.js",
+    "main.js.map": "/JonathanGalvanPerez-autocorregible/static/js/main.3265d721.chunk.js.map",
+    "runtime-main.js": "/JonathanGalvanPerez-autocorregible/static/js/runtime-main.36510725.js",
+    "runtime-main.js.map": "/JonathanGalvanPerez-autocorregible/static/js/runtime-main.36510725.js.map",
+    "static/js/2.a7651c85.chunk.js": "/JonathanGalvanPerez-autocorregible/static/js/2.a7651c85.chunk.js",
+    "static/js/2.a7651c85.chunk.js.map": "/JonathanGalvanPerez-autocorregible/static/js/2.a7651c85.chunk.js.map",
+    "index.html": "/JonathanGalvanPerez-autocorregible/index.html",
+    "static/css/main.39d2f4f1.chunk.css.map": "/JonathanGalvanPerez-autocorregible/static/css/main.39d2f4f1.chunk.css.map",
+    "static/js/2.a7651c85.chunk.js.LICENSE.txt": "/JonathanGalvanPerez-autocorregible/static/js/2.a7651c85.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.36510725.js",
+    "static/js/2.a7651c85.chunk.js",
+    "static/css/main.39d2f4f1.chunk.css",
+    "static/js/main.3265d721.chunk.js"
+  ]
+}
